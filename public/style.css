@@ -11,3 +11,9 @@
 #savebtn{
     margin-left: 60px;
 }
+
+.global{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
