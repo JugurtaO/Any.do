@@ -1,0 +1,13 @@
+.newTask{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    width: 200px;
+    margin-right: 120px;
+    
+
+}
+
+#savebtn{
+    margin-left: 60px;
+}
