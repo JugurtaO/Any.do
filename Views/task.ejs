@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All tasks</title>
+    </head>
+    <body>
+    <% tasks.forEach(T => { %>
+        <div>
+            <h3> <%= T.Task_ID %></h3>
+            <p> <%=  T.Task_Body %></p>
+        </div>
+        
+    <%  }); %> 
+    </body>
+
+</html>
