@@ -3,11 +3,13 @@ const express = require('express')
 const app = express();
 const dotenv=require('dotenv');
 const path=require('path');
-const { db_handler } = require('./config/config');
-const { router } = require("./Routes/index");
+
+
 
 dotenv.config();
+const { db_handler } = require('./config/config');
 
+const { router } = require("./Routes/index");
 
 
 // Set up middlewars 
