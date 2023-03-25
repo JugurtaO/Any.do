@@ -10,10 +10,7 @@ CREATE TABLE IF NOT EXISTS Task (
     Task_Body VARCHAR(1024) NOT NULL
   
 );
-INSERT INTO Task (Task_Body)
- VALUES
- ('Faire ses courses à Lidl'),
- ('Ranger sa chambre');
+
  
- select * from Task;
+
  

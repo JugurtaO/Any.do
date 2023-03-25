@@ -46,7 +46,7 @@
                 <div class="newTask">
                   <div class="col-12">
                     <div class="form-outline">
-                      <input name="task_body" type="text" id="form1" class="form-control"
+                      <input name="task_body" type="text" id="form1" class="form-control " required
                         placeholder="Enter a new task here .." />
 
                     </div>
@@ -89,7 +89,7 @@
                             </form>
                           </div>
                           <div>
-                            <form action="/<%=T.Task_ID %>/edit" method="post">
+                            <form action="/<%=T.Task_ID%>/editPage" method="get">
                               <button type="submit" class="btn btn-success ms-1">Edit</button>
 
                             </form>
