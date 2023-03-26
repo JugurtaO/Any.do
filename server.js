@@ -1,12 +1,15 @@
+if (process.NODE_ENV != "production" ){
+    require("dotenv").config();
+}
 // requiring express and create an express application
 const express = require('express')
 const app = express();
-const dotenv=require('dotenv');
+// const dotenv=require('dotenv');
 const path=require('path');
 
 
 
-dotenv.config();
+// dotenv.config();
 const { db_handler } = require('./config/config');
 
 const { router } = require("./Routes/index");
@@ -34,6 +37,7 @@ app.use(router);
 
 
 // launch application on port 3000
-app.listen(3000, () => {
+const port= process.env.PORT || 3000;
+app.listen(port, () => {
     console.log("app runs on [port:3000]");
 })
