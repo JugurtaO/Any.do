@@ -24,8 +24,10 @@ app.set('views', path.join(__dirname,'Views'));
 
 //Connecting to MySQL DB:
 db_handler.connect((err) => {
-    if (err)
+    if (err){
         console.log("Ouups, cannot get connection to MySQL server! " + err.message);
+    }
+        
     else
         console.log("Successfully connected  to MySQL server");
 });
