@@ -10,7 +10,8 @@ module.exports.deleteTask = (req, res) => {
         if (err)
             console.log("Error playload is set to: " + err.message);
         else 
-            res.redirect('/');
+            // res.redirect('/');
+            res.send('OK.')
 
     })
 

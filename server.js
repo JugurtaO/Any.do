@@ -10,9 +10,13 @@ const path=require('path');
 //requiring bcryptjs 
 const bcrypt=require("bcryptjs");
 
+
+
 //requiring express-session
 const sessions=require("express-session");
 
+// Importing file-store module
+const filestore = require("session-file-store")(sessions);
 
 
 // dotenv.config();
@@ -51,7 +55,8 @@ const sessionOption = {
 }
 
 app.use(sessions(sessionOption));
-//routes handlers
+
+//routes handler
 app.use(router);
 
 
