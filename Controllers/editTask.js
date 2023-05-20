@@ -11,9 +11,9 @@ module.exports.editTask = (req, res) => {
         if (err)
             console.log("Error playload is set to: " + err.message);
 
-        // res.redirect('/');
+        res.redirect('/');
 
-        res.send('OK.')
+        // res.send('OK.')
     })
 
 }

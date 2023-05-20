@@ -9,8 +9,11 @@ const {checkLogin}=require("../middlewares/auth/checkLogin");
 
 
 
-router.get('/',sanitize,checkLogin,taskControllers.viewTask);
+router.get('/',sanitize,taskControllers.renderHome);
+router.get('/allTasks',sanitize,taskControllers.viewTask);
+
 router.get('/:task_id/editPage',checkLogin,sanitize,taskControllers.viewEditPage);
+
 router.post("/add", sanitize,checkLogin,taskControllers.addTask)
 router.post("/:task_id/edit", sanitize,checkLogin,taskControllers.editTask)
 router.post("/:task_id/delete",sanitize, checkLogin,taskControllers.deleteTask)

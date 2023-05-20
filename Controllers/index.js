@@ -1,3 +1,5 @@
+module.exports.renderHome=require("./renderHome").renderHome;
+
 module.exports.addTask=require("./addTask").addTask;
 module.exports.deleteTask=require("./deleteTask").deleteTask;
 module.exports.editTask=require("./editTask").editTask;
