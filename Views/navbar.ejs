@@ -3,17 +3,14 @@
   <!-- Container wrapper -->
   <div class="container">
     <!-- Navbar brand -->
-    <a class="navbar-brand me-2" href="https://mdbgo.com/">
+    <a class="navbar-brand me-2" href="#">
       <img
-        src="logo-removebg-preview.png"
+        src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
         height="16"
-        alt="Any.do Logo"
+        alt="MDB Logo"
         loading="lazy"
-        style="margin-top:10px;
-        width: 90px;
-        height: 60px;"
+        style="margin-top: -1px;"
       />
-
     </a>
 
     <!-- Toggle button -->
@@ -34,19 +31,35 @@
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#"></a>
+          <a class="nav-link" href="/home">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/allTasks">Tasks</a>
         </li>
       </ul>
       <!-- Left links -->
 
       <div class="d-flex align-items-center">
-        <button type="button" class="btn btn-link px-3 me-2" style="text-decoration: none;">
-          Login
-        </button>
-        <button type="button" class="btn btn-primary me-3">
-          Sign up for free
-        </button>
+        <form action="/users/login" method="get">
+          <button type="submit" class="btn btn-link px-3 me-2">
+            Login
+          </button>
+        </form>
+
+        <form action="/users/signup" method="get">
+          <button type="submit" class="btn btn-primary me-3">
+            Sign up for free
+          </button>
+        </form>
         
+        
+        <a
+          class="btn btn-dark px-3"
+          href="https://github.com/JugurtaO"
+          role="button"
+          ><i class="fab fa-github"></i
+        ></a>
       </div>
     </div>
     <!-- Collapsible wrapper -->

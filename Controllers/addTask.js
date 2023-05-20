@@ -14,8 +14,8 @@ module.exports.addTask = (req, res) => {
             console.log("Error playload is set to: " + err.message);
 
         else 
-            res.redirect('/');
-        // res.send('OK.')
+            res.redirect('/allTasks');
+            // res.send('OK.')
        
       
 

@@ -10,3 +10,6 @@ module.exports.login=require("./login").login;
 module.exports.signup=require("./signup").signup;
 module.exports.logout=require("./logout").logout;
 module.exports.signout=require("./signout").signout;
+
+module.exports.renderLogin=require("./renderLogin").renderLogin;
+module.exports.renderSignup=require("./renderSignup").renderSignup;

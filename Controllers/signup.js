@@ -47,7 +47,8 @@ module.exports.signup = (req, res) => {
             req.session.active_user_email = user_email;
             req.session.active_user_id = user_id ;
     
-            return res.send("Successfuly signed up.");
+            // return res.send("Successfuly signed up.");
+            return res.redirect("/home");
         })
     });
 }

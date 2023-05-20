@@ -10,17 +10,20 @@ const {checkLogin}=require("../middlewares/auth/checkLogin");
 
 
 router.get('/',sanitize,taskControllers.renderHome);
-router.get('/allTasks',sanitize,taskControllers.viewTask);
+router.get('/home',sanitize,taskControllers.renderHome);
+router.get('/allTasks',sanitize,checkLogin,taskControllers.viewTask);
+router.get('/users/login',sanitize,taskControllers.renderLogin);
+router.get('/users/signup',sanitize,taskControllers.renderSignup);
+router.get('/tasks/:task_id/editPage',checkLogin,sanitize,taskControllers.viewEditPage);
 
-router.get('/:task_id/editPage',checkLogin,sanitize,taskControllers.viewEditPage);
+router.post("/tasks/add", sanitize,checkLogin,taskControllers.addTask)
+router.post("/tasks/:task_id/edit", sanitize,checkLogin,taskControllers.editTask)
+router.post("/tasks/:task_id/delete",sanitize, checkLogin,taskControllers.deleteTask)
 
-router.post("/add", sanitize,checkLogin,taskControllers.addTask)
-router.post("/:task_id/edit", sanitize,checkLogin,taskControllers.editTask)
-router.post("/:task_id/delete",sanitize, checkLogin,taskControllers.deleteTask)
-router.post("/signup",sanitize,taskControllers.signup);
-router.post("/login",sanitize,taskControllers.login);
-router.post("/logout",sanitize,taskControllers.logout);
-router.post("/signout",sanitize,taskControllers.signout);
+router.post("/users/signup",sanitize,taskControllers.signup);
+router.post("/users/login",sanitize,taskControllers.login);
+router.post("/users/logout",sanitize,taskControllers.logout);
+router.post("/users/signout",sanitize,taskControllers.signout);
 
 
 

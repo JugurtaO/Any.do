@@ -44,6 +44,7 @@ module.exports.login = (req, res) => {
         req.session.active_user_id = user_id ;
 
 
-        return res.send("Successfuly logged in.");
+        // return res.send("Successfuly logged in.");
+        return res.redirect("/allTasks");
     });
 }
