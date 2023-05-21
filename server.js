@@ -11,12 +11,9 @@ const path=require('path');
 const bcrypt=require("bcryptjs");
 
 
-
 //requiring express-session
 const sessions=require("express-session");
 
-// Importing file-store module
-const filestore = require("session-file-store")(sessions);
 
 
 // dotenv.config();
@@ -27,10 +24,14 @@ const { router } = require("./Routes/index");
 
 // Set up middlewars 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
 app.use(express.json());
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname,'Views'));
+app.use(express.static('public'));
+
+// Importing mongo-store module
+const mongostore = require("connect-mongo");
+
 
 //Connecting to MySQL DB:
 db_handler.connect((err) => {
@@ -48,9 +49,13 @@ const sessionOption = {
     secret: String(process.env.SESSION_SECRET),
     resave: false,
     saveUninitialized: false,
-    store: new filestore(),
+    store:  mongostore.create({
+        mongoUrl:String(process.env.MONGO_ATLAS_SESSION_STORE_URL),
+        touchAfter:5 * 24 * 60 * 60
+    }),
     cookie: {
         maxAge: 5 * 24 * 60 * 60 * 1000, //  max_age = 3 days
+        httpOnly:process.NODE_ENV == "production" 
     }
 }
 
