@@ -31,7 +31,10 @@ module.exports.restoreTask = (req, res) => {
                             if (err)
                                 console.log("Error playload is set to: " + err.message);
                             else
-                                res.redirect('/trash');
+                               {
+                                req.flash("success","Task restored successfully");
+                                return res.redirect("/trash"); 
+                               }
                             
 
                         })

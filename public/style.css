@@ -56,8 +56,13 @@
 }
 
 
-form a {
-    text-decoration: none;
+#edit{
+    background-image: url("./back-login.jpg");
+    background-size:cover;
+    background-repeat: no-repeat ;
+    width: 100%;
+    height: 100%;
+
 }
 
 

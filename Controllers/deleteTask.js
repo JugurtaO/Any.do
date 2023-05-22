@@ -30,9 +30,11 @@ module.exports.deleteTask = (req, res) => {
                         db_handler.query(queryString, (err) => {
                             if (err)
                                 console.log("Error playload is set to: " + err.message);
-                            else
-                                res.redirect('/allTasks');
-                            // res.send('OK.')
+                            else{
+                                req.flash("success","Task deleted successfully");
+                                return res.redirect("/allTasks"); 
+                            }
+                              
 
                         })
                     }
