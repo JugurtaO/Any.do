@@ -1,18 +1,23 @@
 const { db_handler } = require("../config/config");
 const bcrypt = require("bcryptjs");
 
+const flash=require("connect-flash");
 
 module.exports.login = (req, res) => {
 
-    if(req.session.active_user_email){
-        return res.send("Already logged in!");
-    }
-
-
     const { user_email, user_password } = req.body;
+
+
     
     if (!user_email.length || !user_password.length){
-        return res.send("Credentials can not be blank."); 
+        req.flash("danger","Credentials can not be blank !");
+        return res.redirect("/users/login"); 
+    }
+    
+
+    if(req.session.active_user_email){
+        req.flash("success","Already logged in.");
+        return res.redirect("/home");
     }
 
     let sql = `
@@ -25,7 +30,8 @@ module.exports.login = (req, res) => {
             return res.send("Error payload is set to : "+ err.message);
         }
         if(!result || result.length != 1){
-            return res.send("Email or Password incorrect.");
+            req.flash("danger","Email or Password incorrect, try again!")
+            return res.redirect("/users/login");
         }
        
 
@@ -33,7 +39,8 @@ module.exports.login = (req, res) => {
         const is_password_correct = bcrypt.compareSync(user_password, result[0].user_password);
 
         if(!is_password_correct){
-            return res.send("Email or Password incorrect.");
+            req.flash("danger","Email or Password incorrect, try again !")
+            return res.redirect("/users/login");
         }
 
         let user_id = result[0].user_id;
@@ -43,8 +50,8 @@ module.exports.login = (req, res) => {
         req.session.active_user_email = user_email;
         req.session.active_user_id = user_id ;
 
-
-        return res.send("Successfuly logged in.");
-        // return res.redirect("/allTasks");
+        req.flash("success","Successfuly logged in.")
+        return res.redirect("/home");
+        
     });
 }

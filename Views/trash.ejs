@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tasks</title>
+  <title>Trash</title>
   <link rel="stylesheet" href="/style.css">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.lite.min.css" integrity="sha512-Eu5EEZpsrO6niYlnhT+ITom/YVGoIZGEsbAvZ+gUJsO3Xaq9+hX4vZnbecMn/Cq5KOdmNOdehu/U80111W9xsA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -39,26 +39,9 @@
             <div class="card-body p-4">
               
 
-              <h4 class="text-center my-3 pb-3">Do it your way ..</h4>
+              <h4 class="text-center my-3 pb-3">Restore it your way ..</h4>
 
-              <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2" action="/tasks/add" ,
-                method="post">
-                <div class="newTask">
-                  <div class="col-12">
-                    <div class="form-outline">
-                      <input name="task_body" type="text" id="form1" class="form-control " required
-                        placeholder="Enter a new task here .." />
-
-                    </div>
-                  </div>
-
-                  <div class="col-12" id="savebtn">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                  </div>
-                </div>
-
-
-              </form>
+              
 
               <table class="table mb-4">
                 <thead>
@@ -84,16 +67,11 @@
                       <td>
                         <div class="global">
                           <div>
-                            <form action="/tasks/<%=T.Task_ID %>/delete" method="post">
-                              <button type="submit" class="btn btn-danger">Delete</button>
+                            <form action="/tasks/<%=T.Task_ID %>/restore" method="post">
+                              <button type="submit" class="btn btn-danger">Restore</button>
                             </form>
                           </div>
-                          <div>
-                            <form action="/tasks/<%=T.Task_ID%>/editPage" method="get">
-                              <button type="submit" class="btn btn-success ms-1">Edit</button>
-
-                            </form>
-                          </div>
+                          
 
 
                         </div>
@@ -116,7 +94,7 @@
         </div>
       </div>
     </div>
- 
+   
     
   
   </section>

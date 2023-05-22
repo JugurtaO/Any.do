@@ -1,11 +1,11 @@
 const { db_handler } = require("../config/config");
 
-module.exports.deleteTask = (req, res) => {
-
+module.exports.restoreTask = (req, res) => {
+  
     const { task_id } = req.params;
 
-    //get task_body and user_id in order to insert task into trash before removing it from Task table
-    query = `SELECT *  FROM Task WHERE Task_ID = ${task_id};`;
+    //get task_body and user_id in order to insert task into Task before removing it from Trash table
+    query = `SELECT *  FROM Trash WHERE Task_ID = ${task_id};`;
 
     db_handler.query(query, (err, results) => {
         if (err)
@@ -16,8 +16,8 @@ module.exports.deleteTask = (req, res) => {
                 let user_id = results[0].user_id;
 
 
-                //insert task into trash before deleting it from Task table
-                query2 = `INSERT INTO Trash (Task_Body,user_id) VALUES ('${Task_Body}','${user_id}');`;
+                //insert task into task before deleting it from Trash table
+                query2 = `INSERT INTO Task (Task_Body,user_id) VALUES ('${Task_Body}','${user_id}');`;
 
                 db_handler.query(query2, (err) => {
                     if (err)
@@ -25,14 +25,14 @@ module.exports.deleteTask = (req, res) => {
 
                     else {
 
-                        //now delete task from Task table
-                        queryString = `DELETE FROM Task WHERE Task_ID = ${task_id};`;
+                        //now delete task from Trash table after retoring it
+                        queryString = `DELETE FROM Trash WHERE Task_ID = ${task_id};`;
                         db_handler.query(queryString, (err) => {
                             if (err)
                                 console.log("Error playload is set to: " + err.message);
                             else
-                                res.redirect('/allTasks');
-                            // res.send('OK.')
+                                res.redirect('/trash');
+                            
 
                         })
                     }
@@ -43,7 +43,7 @@ module.exports.deleteTask = (req, res) => {
 
 
             }
-        // res.send('OK.')
+     
 
     })
 
@@ -55,4 +55,5 @@ module.exports.deleteTask = (req, res) => {
 
 
 
-}
+
+} 

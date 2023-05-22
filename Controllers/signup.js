@@ -1,12 +1,13 @@
 const { db_handler } = require("../config/config");
 const bcrypt = require("bcryptjs");
-
+const flash = require("connect-flash");
 module.exports.signup = (req, res) => {
 
     const { user_nickname, user_email, user_password } = req.body;
-    
-    if (!user_nickname.length || !user_email.length || !user_password.length){
-        return res.send("Credentials can not be blank."); 
+
+    if (!user_nickname.length || !user_email.length || !user_password.length) {
+        req.flash("danger", "Credentials can not be blank !");
+        return res.redirect("/users/signup");
     }
 
     // hash the password
@@ -21,34 +22,36 @@ module.exports.signup = (req, res) => {
         `;
 
     db_handler.query(sql, (err) => {
-       
+
         if (err) {
-            return res.send("Error payload is set to : "+ err.message);
+            return res.send("Error payload is set to : " + err.message);
         }
         sql = `
             SELECT user_id
             FROM USER
             WHERE user_email = '${user_email}' ;
         `;
-      
+
         db_handler.query(sql, (err, results) => {
             if (err) {
-                return res.send("Error payload is set to : "+ err.message);
+                return res.send("Error payload is set to : " + err.message);
             }
 
-            if(!results || results.length != 1){
-                return res.send("Something went wrong. Please log in to proceed.");
+            if (!results || results.length != 1) {
+                req.flash("danger", "Something went wrong. Please log in to proceed !.");
+                return res.redirect("/users/login");
+
             }
-    
+
             let user_id = results[0].user_id;
-    
-    
+
+
             // create session for the current user &send back a cookie 
             req.session.active_user_email = user_email;
-            req.session.active_user_id = user_id ;
-    
-            return res.send("Successfuly signed up.");
-            // return res.redirect("/home");
+            req.session.active_user_id = user_id;
+
+            req.flash("success", "Successfully signed up.");
+            return res.redirect("/home");
         })
     });
 }

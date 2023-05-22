@@ -1,7 +1,9 @@
 module.exports.renderHome=require("./renderHome").renderHome;
+module.exports.renderTrash=require("./renderTrash").renderTrash;
 
 module.exports.addTask=require("./addTask").addTask;
 module.exports.deleteTask=require("./deleteTask").deleteTask;
+module.exports.restoreTask=require("./restoreTask").restoreTask;
 module.exports.editTask=require("./editTask").editTask;
 module.exports.viewEditPage=require("./viewEditPage").viewEditPage;
 module.exports.viewTask=require("./viewTask").viewTask;

@@ -4,6 +4,10 @@ if (process.NODE_ENV != "production" ){
 // requiring express and create an express application
 const express = require('express')
 const app = express();
+
+//requiring connect-flash module
+const flash = require('connect-flash');
+
 // const dotenv=require('dotenv');
 const path=require('path');
 
@@ -28,6 +32,10 @@ app.use(express.json());
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname,'Views'));
 app.use(express.static('public'));
+
+
+
+
 
 // Importing mongo-store module
 const mongostore = require("connect-mongo");
@@ -60,6 +68,20 @@ const sessionOption = {
 }
 
 app.use(sessions(sessionOption));
+
+app.use(flash());
+// overide res.locals object in order to get flash messages 
+// middlware for flash messages in  every http request
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success");
+    res.locals.danger = req.flash("danger");
+    res.locals.active_user_email = req.session.active_user_email;
+    res.locals.active_user_id = req.session.active_user_id;
+
+    // console.log("success >>",res.locals.success);
+    // console.log("danger >>",res.locals.danger);
+    next()
+})
 
 //routes handler
 app.use(router);

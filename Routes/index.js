@@ -12,11 +12,13 @@ const {checkLogin}=require("../middlewares/auth/checkLogin");
 router.get('/',sanitize,taskControllers.renderHome);
 router.get('/home',sanitize,taskControllers.renderHome);
 router.get('/allTasks',sanitize,checkLogin,taskControllers.viewTask);
+router.get('/trash',sanitize,checkLogin,taskControllers.renderTrash);
 router.get('/users/login',sanitize,taskControllers.renderLogin);
 router.get('/users/signup',sanitize,taskControllers.renderSignup);
 router.get('/tasks/:task_id/editPage',checkLogin,sanitize,taskControllers.viewEditPage);
 
-router.post("/tasks/add", sanitize,checkLogin,taskControllers.addTask)
+router.post("/tasks/add", sanitize,checkLogin,taskControllers.addTask);
+router.post("/tasks/:task_id/restore", sanitize,checkLogin,taskControllers.restoreTask);
 router.post("/tasks/:task_id/edit", sanitize,checkLogin,taskControllers.editTask)
 router.post("/tasks/:task_id/delete",sanitize, checkLogin,taskControllers.deleteTask)
 

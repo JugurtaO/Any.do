@@ -19,24 +19,30 @@
 }
 
 
-section{
+#back-task{
     background-image: url('./background.jpg');
     background-size:cover;
     background-repeat: no-repeat ;
     width: 100%;
     height: 100%;
-   
-   
-}
-.second{
-    background-image: url('./background2.avif');
+   }
+
+#backsignup{
+    background-image: url("./back-login.jpg");
     background-size:cover;
     background-repeat: no-repeat ;
     width: 100%;
     height: 100%;
-
+   
 }
-
+#backlogin{
+    background-image: url("./back-login.jpg");
+    background-size:cover;
+    background-repeat: no-repeat ;
+    width: 100%;
+    height: 100%;
+   
+}
 
 #actions{
     padding-left: 100px;
@@ -49,17 +55,9 @@ section{
     font-size: 50px;
 }
 
-#body{
-    background-image: url('./background2.avif');
-    background-size:cover;
-    background-repeat: no-repeat ;
-    width: 100%;
-    height: 100%;
-    
 
+form a {
+    text-decoration: none;
 }
-
-
-
 
 
