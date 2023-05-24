@@ -85,12 +85,14 @@
                         <div class="global">
                           <div>
                             <form action="/tasks/<%=T.Task_ID %>/delete" method="post">
-                              <button type="submit" class="btn btn-danger">Delete</button>
+                              <button type="submit" class="btn btn-danger">Delete <i class="fa fa-trash-o" aria-hidden="true"></i>
+                              </button>
                             </form>
                           </div>
                           <div>
                             <form action="/tasks/<%=T.Task_ID%>/editPage" method="get">
-                              <button type="submit" class="btn btn-success ms-1">Edit</button>
+                              <button type="submit" class="btn btn-success ms-1">Edit <i class="fa fa-pencil" aria-hidden="true"></i>
+                              </button>
 
                             </form>
                           </div>
