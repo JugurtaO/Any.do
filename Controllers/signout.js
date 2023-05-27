@@ -43,7 +43,7 @@ module.exports.signout = (req, res) => {
             req.session.destroy();
 
             req.flash("success","Successfully signed out.");
-            return res.redirect("/signup");
+            return res.redirect("/users/signup");
         })
 
     });

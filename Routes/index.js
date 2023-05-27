@@ -12,6 +12,7 @@ const {checkLogin}=require("../middlewares/auth/checkLogin");
 router.get('/',sanitize,taskControllers.renderHome);
 router.get('/home',sanitize,taskControllers.renderHome);
 router.get('/allTasks',sanitize,checkLogin,taskControllers.viewTask);
+router.get('/about',sanitize,taskControllers.renderAbout);
 router.get('/trash',sanitize,checkLogin,taskControllers.renderTrash);
 router.get('/users/login',sanitize,taskControllers.renderLogin);
 router.get('/users/signup',sanitize,taskControllers.renderSignup);

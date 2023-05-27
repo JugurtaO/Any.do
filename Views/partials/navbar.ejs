@@ -33,6 +33,7 @@
         <li class="nav-item">
           <a class="nav-link" href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
         </li>
+       
 
         <li class="nav-item">
           <a class="nav-link" href="/allTasks"><i class="fa fa-tasks" aria-hidden="true"></i>
@@ -42,15 +43,35 @@
           <a class="nav-link" href="/trash"><i class="fa fa-trash" aria-hidden="true"></i>
             Trash</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">        <i class="fa fa-users" aria-hidden="true"></i>
+
+          About us</a>
+        </li>
       </ul>
       <!-- Left links -->
 
       <div class="d-flex align-items-center">
+        <% if (active_user_id) { %>
+          <form action="/users/logout" method="post">
+            <button type="submit" class="btn btn-light px-3 me-2">
+              Logout
+            </button>
+          </form>
+          
+          <form action="/users/signout" method="post">
+            <button type="submit" class="btn btn-light px-3 me-2">
+              Sign out
+            </button>
+          </form>
+        
+        <% } else { %>
         <form action="/users/login" method="get">
           <button type="submit" class="btn btn-light px-3 me-2">
             Login
           </button>
         </form>
+       
 
         <form action="/users/signup" method="get">
           <button type="submit" class="btn btn-dark me-3">
@@ -58,7 +79,7 @@
           </button>
         </form>
         
-        
+        <% } %>
         <!-- <a
           class="btn btn-dark px-3"
           href="https://github.com/JugurtaO"
