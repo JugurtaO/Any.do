@@ -64,6 +64,11 @@
               Sign out
             </button>
           </form>
+
+          <button type="button" class="btn btn-info px-3 me-2">
+            Logged as <%= active_user_email.split('@')[0]%>
+          </button>
+          
         
         <% } else { %>
         <form action="/users/login" method="get">
