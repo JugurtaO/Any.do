@@ -16,3 +16,4 @@ module.exports.signout=require("./signout").signout;
 
 module.exports.renderLogin=require("./renderLogin").renderLogin;
 module.exports.renderSignup=require("./renderSignup").renderSignup;
+module.exports.renderSignout=require("./renderSignout").renderSignout;

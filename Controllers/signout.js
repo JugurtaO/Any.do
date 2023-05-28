@@ -40,9 +40,12 @@ module.exports.signout = (req, res) => {
             // if (err) return res.send("Error payload is set to : "+ err.message);
 
             // destroy the session and the corresponding file.
-            req.session.destroy();
+            // req.session.destroy();
 
-            req.flash("success","Successfully signed out.");
+            req.session.active_user_email = null;
+            req.session.active_user_id = null;
+    
+            req.flash("success","Successfully signed out. Good bye!");
             return res.redirect("/users/signup");
         })
 

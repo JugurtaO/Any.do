@@ -7,8 +7,6 @@ module.exports.logout = (req, res) => {
     }
 
     req.session.active_user_email = null;
-
-    //added line 
     req.session.active_user_id = null;
     
     req.flash("success","Successfuly logged out.");

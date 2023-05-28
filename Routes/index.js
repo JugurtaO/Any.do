@@ -16,6 +16,7 @@ router.get('/about',sanitize,taskControllers.renderAbout);
 router.get('/trash',sanitize,checkLogin,taskControllers.renderTrash);
 router.get('/users/login',sanitize,taskControllers.renderLogin);
 router.get('/users/signup',sanitize,taskControllers.renderSignup);
+router.get('/users/signout',sanitize,taskControllers.renderSignout);
 router.get('/tasks/:task_id/editPage',checkLogin,sanitize,taskControllers.viewEditPage);
 
 router.post("/tasks/add", sanitize,checkLogin,taskControllers.addTask);
