@@ -23,7 +23,7 @@
     background-image: url('./background.jpg');
     background-size:cover;
     background-repeat: no-repeat ;
-    width: 100%;
+    width:  100%;
     height: 100%;
    }
 
@@ -79,6 +79,8 @@
   
 #slo{
     margin-bottom: 700px;
+    font-weight: bolder;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #slo2{
     margin-bottom: 700px;
