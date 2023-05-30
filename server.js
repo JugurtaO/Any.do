@@ -69,6 +69,7 @@ const sessionOption = {
 app.use(sessions(sessionOption));
 
 app.use(flash());
+
 // overide res.locals object in order to get flash messages 
 // middlware for flash messages in  every http request
 app.use((req, res, next) => {
@@ -79,8 +80,13 @@ app.use((req, res, next) => {
 
     // console.log("success >>",res.locals.success);
     // console.log("danger >>",res.locals.danger);
+
+    console.log("session >>>",req.session);
+    console.log("user_email >>",res.locals.active_user_email);
+    console.log("user_id  >>",res.locals.active_user_id);
     next()
 })
+
 
 //routes handler
 app.use(router);

@@ -4,7 +4,8 @@ const flash = require("connect-flash");
 module.exports.signout = (req, res) => {
 
     const { user_email, user_password } = req.body;
-
+    const USER_ID = req.session.active_user_id;
+    console.log("user_id=",USER_ID);
     let sql = `
         SELECT * FROM USER
         WHERE user_email = '${user_email}'; `;
@@ -15,7 +16,7 @@ module.exports.signout = (req, res) => {
 
 
         if (!results || results.length != 1) {
-            req.flash("danger","Email or Password incorrect, try again !");
+            req.flash("danger", "Email or Password incorrect, try again !");
             return res.redirect("/users/signout");
         }
 
@@ -23,31 +24,48 @@ module.exports.signout = (req, res) => {
 
         let safetoDelete = bcrypt.compareSync(user_password, results[0].user_password);
 
-        if (!safetoDelete){
-            req.flash("danger","Email or Password incorrect, try again !");
+        if (!safetoDelete) {
+            req.flash("danger", "Email or Password incorrect, try again !");
             return res.redirect("/users/signout");
         };
 
-        sql = `
-            DELETE FROM Trash WHERE user_id =${results[0].user_id};
-            DELETE FROM Task WHERE user_id =${results[0].user_id};
-            DELETE FROM USER WHERE user_id =${results[0].user_id};`;
+        sql1 = ` DELETE FROM Trash WHERE user_id =${USER_ID}};`;
+        sql2 = ` DELETE FROM Task WHERE user_id =${USER_ID} ;`;
+        sql3 = ` DELETE FROM USER WHERE user_id =${USER_ID} ;`;
 
 
 
-        db_handler.query(sql, (err) => {
+        db_handler.query(sql1, (err) => {
             /** sql does not work for an error that we do not understand. */
-            // if (err) return res.send("Error payload is set to : "+ err.message);
+            //lE PROBLÈME EST LÀ , LA SYNTAXE DE LA REQÛÊTE EST FAUSSE 
+            if (err) return res.send("Error payload is set to : " + err.message);
+            db_handler.query(sql2, (err) => {
 
-            // destroy the session and the corresponding file.
-            // req.session.destroy();
+                if (err) return res.send("Error payload is set to : " + err.message);
 
-            req.session.active_user_email = null;
-            req.session.active_user_id = null;
-    
-            req.flash("success","Successfully signed out. Good bye!");
-            return res.redirect("/users/signup");
+                db_handler.query(sql3, (err) => {
+
+                    if (err) return res.send("Error payload is set to : " + err.message);
+
+
+                    // destroy user session.
+                    req.flash("success", "Successfully signed out. Good bye!");
+                    req.session.destroy();
+                    return res.redirect("/");
+                })
+
+            })
+
+
+
+
+
+
+
         })
+
+
+
 
     });
 }
