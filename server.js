@@ -51,6 +51,7 @@ db_handler.connect((err) => {
 });
 
 /** SETUP OUR SESSIONS */
+// console.log("mongo URL:",String(process.env.MONGO_ATLAS_SESSION_STORE_URL));
 const sessionOption = {
     name: String(process.env.SESSION_NAME),
     secret: String(process.env.SESSION_SECRET),
@@ -94,7 +95,7 @@ app.use(router);
 
 
 // launch application on port 3000
-const port= process.env.DB_port || 3000;
+const port= process.env.PORT || 3000;
 app.listen(port, () => {
     console.log("app runs on [port:",port,"]");
 })
