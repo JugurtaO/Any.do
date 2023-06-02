@@ -18,8 +18,7 @@ module.exports.signup = (req, res) => {
         INSERT INTO USER
             (user_nickname,user_email,user_password)
         VALUES
-            ('${user_nickname}', '${user_email}', '${hash}');
-        `;
+            ('${user_nickname}', '${user_email}', '${hash}');`;
 
     db_handler.query(sql, (err) => {
 
@@ -29,8 +28,7 @@ module.exports.signup = (req, res) => {
         sql = `
             SELECT user_id
             FROM USER
-            WHERE user_email = '${user_email}' ;
-        `;
+            WHERE user_email = '${user_email}';`;
 
         db_handler.query(sql, (err, results) => {
             if (err) {
