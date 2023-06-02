@@ -51,8 +51,8 @@ module.exports.signout = (req, res) => {
 
 
                     // destroy user session.
-                    req.session.destroy();
                     req.flash("success", "Successfully signed out. Good bye!");
+                    req.session.destroy();
 
                     return res.redirect("/");
                 })
