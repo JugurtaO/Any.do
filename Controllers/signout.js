@@ -5,7 +5,7 @@ module.exports.signout = (req, res) => {
 
     const { user_email, user_password } = req.body;
     const USER_ID = req.session.active_user_id;
-    console.log("user_id=",USER_ID);
+    // console.log("user_id=",USER_ID);
     let sql = `
         SELECT * FROM USER
         WHERE user_email = '${user_email}'; `;
