@@ -42,6 +42,7 @@ module.exports.signout = (req, res) => {
             db_handler.query(sql2, (err) => {
 
                 if (err) return res.send("Error payload is set to : " + err.message);
+
                 sql3 = ` DELETE FROM USER WHERE user_id =${USER_ID} ;`;
 
                 db_handler.query(sql3, (err) => {
@@ -50,8 +51,9 @@ module.exports.signout = (req, res) => {
 
 
                     // destroy user session.
-                    req.flash("success", "Successfully signed out. Good bye!");
                     req.session.destroy();
+                    req.flash("success", "Successfully signed out. Good bye!");
+
                     return res.redirect("/");
                 })
 
