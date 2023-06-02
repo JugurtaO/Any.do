@@ -29,7 +29,7 @@ module.exports.signout = (req, res) => {
             return res.redirect("/users/signout");
         };
 
-        sql1 = ` DELETE FROM Trash WHERE user_id =${USER_ID}};`;
+        sql1 = ` DELETE FROM Trash WHERE user_id =${USER_ID};`;
         sql2 = ` DELETE FROM Task WHERE user_id =${USER_ID} ;`;
         sql3 = ` DELETE FROM USER WHERE user_id =${USER_ID} ;`;
 
