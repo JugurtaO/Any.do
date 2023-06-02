@@ -29,7 +29,7 @@ module.exports.signout = (req, res) => {
             return res.redirect("/users/signout");
         };
 
-        sql1 = ` DELETE FROM Trash WHERE user_id =${USER_ID};`;
+       let  sql1 = ` DELETE FROM Trash WHERE user_id =${USER_ID};`;
         
 
 
@@ -38,12 +38,12 @@ module.exports.signout = (req, res) => {
             /** sql does not work for an error that we do not understand. */
             //lE PROBLÈME EST LÀ , LA SYNTAXE DE LA REQÛÊTE EST FAUSSE 
             if (err) return res.send("Error payload is set to : " + err.message);
-            sql2 = ` DELETE FROM Task WHERE user_id =${USER_ID} ;`;
+            let sql2 = ` DELETE FROM Task WHERE user_id =${USER_ID} ;`;
             db_handler.query(sql2, (err) => {
 
                 if (err) return res.send("Error payload is set to : " + err.message);
 
-                sql3 = ` DELETE FROM USER WHERE user_id =${USER_ID} ;`;
+                let sql3 = ` DELETE FROM USER WHERE user_id =${USER_ID} ;`;
 
                 db_handler.query(sql3, (err) => {
 
@@ -52,7 +52,8 @@ module.exports.signout = (req, res) => {
 
                     // destroy user session.
                     req.flash("success", "Successfully signed out. Good bye!");
-                    req.session.destroy();
+                    req.session.active_user_id=null;
+                    req.session.active_user_email=null;
 
                     return res.redirect("/");
                 })

@@ -63,7 +63,7 @@ const sessionOption = {
     }),
     cookie: {
         maxAge: 5 * 24 * 60 * 60 * 1000, //  max_age = 3 days
-        httpOnly:process.NODE_ENV == "production" 
+        httpOnly:true,
     }
 }
 
