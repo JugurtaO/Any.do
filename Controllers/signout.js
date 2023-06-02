@@ -38,19 +38,19 @@ module.exports.signout = (req, res) => {
         db_handler.query(sql1, (err) => {
             /** sql does not work for an error that we do not understand. */
             //lE PROBLÈME EST LÀ , LA SYNTAXE DE LA REQÛÊTE EST FAUSSE 
-            if (err) return res.send("Error payload is set to hola1 : " + err.message);
+            if (err) return res.send("Error payload is set to : " + err.message);
             db_handler.query(sql2, (err) => {
 
-                if (err) return res.send("Error payload is set to hola2 : " + err.message);
+                if (err) return res.send("Error payload is set to : " + err.message);
 
                 db_handler.query(sql3, (err) => {
 
-                    if (err) return res.send("Error payload is set to hola3 : " + err.message);
+                    if (err) return res.send("Error payload is set to  : " + err.message);
 
 
                     // destroy user session.
-                    req.flash("success", "Successfully signed out. Good bye!");
                     req.session.destroy();
+                    req.flash("success", "Successfully signed out. Good bye!");
                     return res.redirect("/");
                 })
 
