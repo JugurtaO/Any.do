@@ -14,7 +14,7 @@ module.exports.signup = (req, res) => {
     const salt = bcrypt.genSaltSync(12);
     const hash = bcrypt.hashSync(String(user_password), salt);
 
-    let sql = `
+    let  sql = `
         INSERT INTO USER
             (user_nickname,user_email,user_password)
         VALUES
@@ -23,7 +23,7 @@ module.exports.signup = (req, res) => {
     db_handler.query(sql, (err) => {
 
         if (err) {
-            return res.send("Error payload is set to : " + err.message);
+            return res.send("Error payload is set to hola : " + err.message);
         }
         sql = `
             SELECT user_id
