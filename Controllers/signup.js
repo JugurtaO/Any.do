@@ -32,7 +32,7 @@ module.exports.signup = (req, res) => {
 
         db_handler.query(sql, (err, results) => {
             if (err) {
-                return res.send("Error payload is set to : " + err.message);
+                return res.send("Error payload is set to here : " + err.message);
             }
 
             if (!results || results.length != 1) {
