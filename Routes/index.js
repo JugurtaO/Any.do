@@ -17,7 +17,7 @@ router.get('/trash',sanitize,checkLogin,taskControllers.renderTrash);
 router.get('/users/login',sanitize,taskControllers.renderLogin);
 router.get('/users/signup',sanitize,taskControllers.renderSignup);
 router.get('/users/signout',sanitize,taskControllers.renderSignout);
-router.get('/tasks/:task_id/editPage',checkLogin,sanitize,taskControllers.viewEditPage);
+router.get('/tasks/:task_id/editPage',sanitize,checkLogin,taskControllers.viewEditPage);
 
 router.post("/tasks/add", sanitize,checkLogin,taskControllers.addTask);
 router.post("/tasks/:task_id/restore", sanitize,checkLogin,taskControllers.restoreTask);

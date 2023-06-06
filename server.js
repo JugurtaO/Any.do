@@ -62,7 +62,7 @@ const sessionOption = {
         touchAfter:5 * 24 * 60 * 60
     }),
     cookie: {
-        maxAge: 5 * 24 * 60 * 60 * 1000, //  max_age = 3 days
+        maxAge: 5 * 24 * 60 * 60 * 1000, //  max_age = 5 days
         httpOnly:true,
     }
 }
