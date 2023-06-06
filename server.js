@@ -78,6 +78,7 @@ app.use((req, res, next) => {
     res.locals.danger = req.flash("danger");
     res.locals.active_user_email = req.session.active_user_email;
     res.locals.active_user_id = req.session.active_user_id;
+    res.locals.active_user_nickname=req.session.active_user_nickname;
 
     // console.log("success >>",res.locals.success);
     // console.log("danger >>",res.locals.danger);
