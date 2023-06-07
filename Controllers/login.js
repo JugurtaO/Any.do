@@ -49,7 +49,7 @@ module.exports.login = (req, res) => {
         // create session for the current user &send back a cookie 
         req.session.active_user_email = user_email;
         req.session.active_user_id = user_id ;
-        req.session.active_user_nickname=result[0].user_nickname;
+        req.session.active_user_nickname = result[0].user_nickname;
 
         req.flash("success","Successfuly logged in.")
         return res.redirect("/home");
