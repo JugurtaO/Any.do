@@ -1,100 +1,118 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <!-- Container wrapper -->
-  <div class="container">
-    <!-- Navbar brand
-    <a class="navbar-brand me-2" href="#">
-      <img
-        src="Any.do.png"
-        height="16"
-        alt="Any.do Logo"
-        loading="lazy"
-        style="margin-top: -1px;"
-      />
-    </a> -->
-
-    <!-- Toggle button -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarButtonsExample"
-      aria-controls="navbarButtonsExample"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark mb-5">
+  <div class="container-fluid navbar__container">
+      <a class="navbar-brand" href="/"><i class="fa fa-tasks" aria-hidden="true"></i>
+        Any.do</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Tools
+                  </a>
 
-    <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarButtonsExample">
-      <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
-        </li>
-       
+                  <ul class="navbar__dropdown dropdown-menu" style="color:white !important; background:#212529 !important;" aria-labelledby="navbarScrollingDropdown">
+                      <li class="nav-item">
+                          <a class="nav-link " aria-current="page" href="/allTasks"><i class="fa fa-tasks" aria-hidden="true"></i>
+                            My Tasks</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/allTasks"><i class="fa-solid fa-pen"></i> Add Task</a>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/allTasks"><i class="fa fa-tasks" aria-hidden="true"></i>
-            Tasks</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/trash"><i class="fa fa-trash" aria-hidden="true"></i>
-            Trash</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">        <i class="fa fa-users" aria-hidden="true"></i>
+                      </li>
+                      <% if(!active_user_email){ %>
+                          <li class="nav-item">
+                              <a class="nav-link" href="/users/login"><i class="fas fa-user-check"></i> Login</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="/users/signup"><i class="fas fa-user-plus"></i> Signup</a>
+                          </li>
+                          <% }else{ %>
+                          <li class="nav-item">
+                              <form action="/users/logout" method="post">
+                                  <button type="submit" class="btn btn-dark px-3 me-2 bg-transparent" style="border: none;" >
+                                      <i class="fas fa-sign-out-alt"></i>Logout
+                                  </button>
+                                </form>
+                          </li>
+                              
+                                
+                              <li class="nav-item">
+                                  <a class="nav-link" href="/users/signout"><i class="fas fa-user-minus"></i> Signout</a>
+                              </li>
+                              <% } %>
 
-          About us</a>
-        </li>
-      </ul>
-      <!-- Left links -->
 
-      <div class="d-flex align-items-center">
-        <% if (active_user_id) { %>
-          <form action="/users/logout" method="post">
-            <button type="submit" class="btn btn-light px-3 me-2">
-              Logout
-            </button>
-          </form>
-          
-          <form action="/users/signout" method="get">
-            <button type="submit" class="btn btn-light px-3 me-2">
-              Sign out
-            </button>
-          </form>
 
-          <button type="button" class="btn btn-link px-3 me-2" style="text-decoration: none;color: black; font-weight: bold;">
-            Logged as <%=active_user_nickname%>
-          </button>
-          
-        
-        <% } else { %>
-        <form action="/users/login" method="get">
-          <button type="submit" class="btn btn-light px-3 me-2">
-            Login
-          </button>
-        </form>
-       
+                  </ul>
+              </li>
 
-        <form action="/users/signup" method="get">
-          <button type="submit" class="btn btn-dark me-3">
-            Sign up for free
-          </button>
-        </form>
-        
-        <% } %>
-        <!-- <a
-          class="btn btn-dark px-3"
-          href="https://github.com/JugurtaO"
-          role="button"
-          ><i class="fab fa-github"></i
-        ></a> -->
       </div>
-    </div>
-    <!-- Collapsible wrapper -->
   </div>
-  <!-- Container wrapper -->
 </nav>
-<!-- Navbar -->
+<style>
+  body {
+      font-family: "Lato", sans-serif;
+  }
+  
+  body::-webkit-scrollbar {
+      width: 0.5rem;
+  }
+  
+  body::-webkit-scrollbar-track {
+      background: #1e1e24;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+      background: #6649b8;
+  }
+  
+  .nav-link:hover {
+      color: white;
+      border-bottom: #6649b8 solid 2px;
+      margin-left: 2px;
+  }
+  
+  .navbar {
+      font-size: 1.5rem;
+  }
+  
+  .navbar-brand {
+      font-size: 1.7rem;
+      padding-right: 5rem;
+  }
+  
+  .navbar__dropdown {
+      font-size: inherit;
+      width: 20vw;
+  }
+  
+  .navbar__container {
+      height: 4rem;
+      width: 56vw;
+  }
+  
+  @media screen and (max-width:80rem) {
+      .navbar__container {
+          height: inherit;
+          width: 90vw;
+      }
+      .navbar__dropdown {
+          width: inherit;
+      }
+
+  }
+  
+  .btn {
+      color: gray;
+      font-size: 23px;
+
+  }
+ .btn:hover {
+      color: white;
+      border-bottom: #6649b8 solid 2px;
+      margin-left: 2px;
+  }
+  
+</style>

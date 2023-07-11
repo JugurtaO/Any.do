@@ -28,6 +28,8 @@
 
 <%- include('./partials/navbar.ejs') %>
 <%- include('./partials/flashMsg.ejs') %>
+
+
   <section class="vh-100" style="background-color: #eee;" id="back-task">
     <div class="container py-5 h-100">
       <div class="slogan">
@@ -68,7 +70,7 @@
                         <div class="global">
                           <div>
                             <form action="/tasks/<%=T.Task_ID %>/restore" method="post">
-                              <button type="submit" class="btn btn-primary">Restore</button>
+                              <button type="submit" class="btn btn-primary" style="color: white;">Restore</button>
                             </form>
                           </div>
                           

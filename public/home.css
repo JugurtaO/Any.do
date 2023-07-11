@@ -1,0 +1,109 @@
+ /*home*/
+ * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+@media screen and (max-width:60rem) {
+    html {
+        font-size: 55%;
+    }
+    body {
+        height: 150vh;
+    }
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.6rem;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1527168027773-0cc890c4f42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"); /*https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=8*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+
+.section-about {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.heading-primary {
+    font-size: 4rem;
+    padding: 3rem 0;
+}
+
+.paragraph {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.btn {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2rem;
+}
+
+.header__logo {
+    font-size: 2.8rem;
+    font-weight: 500;
+}
+
+.cover-container {
+    max-width: 60vw;
+}
+
+.nav-link {
+    padding: 0.25rem 0;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 1rem;
+    border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link:hover {
+    color: rgba(255, 255, 255, 1);
+    border-bottom-color: rgba(255, 255, 255, 1);
+}
+
+.nav-link.active {
+    color: white;
+    border-bottom-color: white;
+}
+
+.btn-secondary,
+.btn-secondary:hover {
+    color: #333;
+    text-shadow: none;
+}
+
+.nav-item.dropdown .nav-link{
+    border-bottom: transparent solid 2px;
+    transition: all ease-in-out 0.3s;
+}
+
+form button:hover {
+    color: rgba(255, 255, 255, 1);
+    border-bottom-color: rgba(255, 255, 255, 1);
+}
+form button {
+    padding: 0.25rem 0;
+    font-weight: 400;
+    color:#212529;
+    margin-left: 1rem;
+    border-bottom: 0.25rem solid transparent;
+    
+}
+form button.active {
+    color: white;
+    border-bottom-color: white;
+}
+
+

@@ -28,6 +28,7 @@
 
 <%- include('./partials/navbar.ejs') %>
 <%- include('./partials/flashMsg.ejs') %>
+
   <section class="vh-100" style="background-color: #eee;" id="back-task">
     <div class="container py-5 h-100">
       <div class="slogan">
@@ -53,7 +54,7 @@
                   </div>
 
                   <div class="col-12" id="savebtn">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-info">Save</button>
                   </div>
                 </div>
 
@@ -85,13 +86,13 @@
                         <div class="global">
                           <div>
                             <form action="/tasks/<%=T.Task_ID %>/delete" method="post">
-                              <button type="submit" class="btn btn-danger">Delete <i class="fa fa-trash-o" aria-hidden="true"></i>
+                              <button type="submit" class="btn btn-danger" style="color: white;">Delete <i class="fa fa-trash-o" aria-hidden="true"></i>
                               </button>
                             </form>
                           </div>
                           <div>
                             <form action="/tasks/<%=T.Task_ID%>/editPage" method="get">
-                              <button type="submit" class="btn btn-success ms-1">Edit <i class="fa fa-pencil" aria-hidden="true"></i>
+                              <button type="submit" class="btn btn-success ms-1" style="color: white;">Edit <i class="fa fa-pencil" aria-hidden="true"></i>
                               </button>
 
                             </form>
