@@ -7,6 +7,13 @@ module.exports.addTask = (req, res) => {
     const user_id = req.session.active_user_id;
 
 
+    if(!task_body.length){
+        req.flash("danger","Task cannot be blank!");
+        return res.redirect("/allTasks");
+
+    }
+   
+
     queryString = `INSERT INTO Task (Task_Body,user_id) VALUES ('${task_body}','${user_id}');`;
 
     db_handler.query(queryString, (err) => {

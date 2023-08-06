@@ -10,6 +10,8 @@
 
 #savebtn{
     margin-left: 60px;
+    height: 20px;
+    margin-top: 0px;
 }
 
 .global{
@@ -66,49 +68,3 @@
 
 }
 
-/* home page */
-
-.carousel-item {
-    height: 100vh;
-    min-height: 350px;
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-  
-#slo{
-    margin-bottom: 700px;
-    font-weight: bolder;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-#slo2{
-    margin-bottom: 700px;
-}
-
-
-/*  about us*/
-.social-link {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    border-radius: 50%;
-    transition: all 0.3s;
-    font-size: 0.9rem;
-  }
-  
-  .social-link:hover,
-  .social-link:focus {
-    background: #ddd;
-    text-decoration: none;
-    color: #555;
-  }
-
-
-
- 
