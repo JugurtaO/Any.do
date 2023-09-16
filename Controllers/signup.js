@@ -14,8 +14,7 @@ module.exports.signup = (req, res) => {
     const salt = bcrypt.genSaltSync(12);
     const hash = bcrypt.hashSync(String(user_password), salt);
 
-    let  sql1 = `
-        INSERT INTO USER
+    let  sql1 = `INSERT INTO USER
             (user_nickname,user_email,user_password)
         VALUES
             ('${user_nickname}', '${user_email}', '${hash}');`;
